@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:tiktok_flutter/di/locator.dart';
 
-class AppBaseViewMode extends BaseViewModel{
+class AppBaseViewModel extends BaseViewModel{
   ThemeMode theme = ThemeMode.dark;
+  AppBaseViewModel baseModel = locator<AppBaseViewModel>();
   init(){}
 
   changeTheme(){
@@ -11,6 +13,6 @@ class AppBaseViewMode extends BaseViewModel{
     }else{
       theme=ThemeMode.dark;
     }
-    notifyListeners();
+    baseModel.notifyListeners();
   }
 }
